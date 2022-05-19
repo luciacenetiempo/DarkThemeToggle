@@ -1,0 +1,67 @@
+:root {
+  --main-bg: white;
+  --main-txt: black;
+  --button-bg: black;
+  --button-txt: white;
+}
+
+[data-theme="dark"] {
+  --main-bg: black;
+  --main-txt: white;
+  --button-bg: white;
+  --button-txt: black;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--main-txt);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-txt);
+}
+
+body {
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+body h1 {
+  font-size: 3em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+body button {
+  border: 0;
+  border-radius: 20px;
+  padding: 10px 20px;
+  letter-spacing: 0.1em;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+body button:hover {
+  opacity: 0.7;
+}
+
+body::after {
+  position: absolute;
+  bottom: 20px;
+  color: var(--main-txt);
+  font-size: 0.8em;
+  content: 'MADE BY LUCIACENETIEMPO.COM';
+  letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+}
