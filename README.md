@@ -5,13 +5,13 @@ The purpose of this project is to create a toggle button to switch the theme of 
 
 ## HTML
 Basically in the html file we create a button that calls on click a function **toggleTheme()**
-```
+```html
 <button onclick="toggleTheme()">CHANGE ME</button>
 ```
 
 ## Javascript
 In javascript instead we manage the switch, first of all let's set the body and the default mode:
-```
+```javascript
 const body = document.querySelector ('body')
 const defaultTheme = 'light'
 ```
@@ -19,7 +19,7 @@ const defaultTheme = 'light'
 This will be used to define the mode chosen by us the first time the user arrives on our page.
 Moving on, let's create the function **toggleTheme()**
 
-```
+```javascript
 const toggleTheme = () => {
   let activeTheme = localStorage.getItem('theme')
   activeTheme == 'light' ? setTheme('dark') : setTheme('light')
@@ -32,7 +32,7 @@ So if **localStorage.getItem('theme')** has the value **'light'** we will set **
 
 So what does **setTheme()** do?
 
-```
+```javascript
 const setTheme = (theme) => {
   localStorage.setItem('theme', theme)
   body.setAttribute('data-theme', theme)
@@ -45,8 +45,7 @@ In this function we do only two things:
 
 and to complete our plugin we launch the function that takes care of setting the default mode at startup:
 
-```
-
+```javascript
 const checkDefaultTheme = () => {
   let savedTheme = localStorage.getItem('theme')
   savedTheme ? body.setAttribute('data-theme', savedTheme) : setTheme(defaultTheme)
@@ -61,7 +60,7 @@ this function starts as soon as the user arrives on the page, then we check if h
 Let's move to the CSS
 we need very few lines of css because we will use variables.
 
-```
+```css
 :root {
   --main-bg: white;
   --main-txt: black;
@@ -83,4 +82,7 @@ body {
 
 in the **root** we define the colors that we will use for the default mode (in our case the light) then we define the dark mode with **[data-theme = "dark"]** in which we will change the colors to the same root variables.
 
-And so the magic begins ... our body will work on the colors set in the variables and depending on the [data-theme] it will invert them
+And so the magic begins... our body will work on the colors set in the variables and depending on the [data-theme] it will invert them.
+
+
+Do oyu have questions? <a href="https://dev.to/luciacenetiempo/dark-theme-toggle-56p9" target="_blank">Let's talk about this on dev.to</a>
